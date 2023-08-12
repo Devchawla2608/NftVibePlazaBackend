@@ -10,14 +10,12 @@ module.exports.create = async function (req, res) {
             }
             let newPost = await Post.create(post)
             if(!newPost){
-                alert("Error in creating post");
                 return res.send({
                     data: false,
                     message: "Error in creating post",
                     status: 500
                 })
             }
-            alert("Post created successfully");
             console.log("Post is created ", newPost)
             return res.send({
                     data: {
@@ -28,7 +26,6 @@ module.exports.create = async function (req, res) {
             })
     })
     }catch(err){
-        alert("Error in creating post");
         console.log("Error in creating post", err)
         return res.send({
             data: false,
