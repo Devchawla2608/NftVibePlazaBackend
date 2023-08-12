@@ -69,3 +69,23 @@ module.exports.createSession = async function (req, res) {
           })
     }
 };
+
+module.exports.logout = function (req, res) {
+    // Token in header
+    const token = req.headers['x-access-token'];
+    // Token not found
+    if (!token) {
+        return res.send({
+            status: 422,
+            message: "Token not found",
+            data: false
+        })
+    }
+    // Remove JWT ?
+    req.logout();
+    return res.send({
+        status: 200,
+        message: "Logout Successfully",
+        data: true
+      })
+}

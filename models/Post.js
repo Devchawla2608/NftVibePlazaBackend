@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const POST_PATH = path.join('/uploads/posts/images')
+const User = require("./User");
 const postSchema = mongoose.Schema(
   {
     caption: {
@@ -20,6 +21,7 @@ const postSchema = mongoose.Schema(
       },
     ],
     image:{
+      required:true,
       type:String
     }
   },
