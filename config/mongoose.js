@@ -1,17 +1,17 @@
-// Require the librabry
-const mongoose = require("mongoose");
+// // Require the librabry
+// const mongoose = require("mongoose");
 
-// connect to the database
-mongoose.connect("mongodb://localhost/nft_db");
+// // connect to the database
+// mongoose.connect("mongodb://localhost/nft_db");
 
-// acuire the connection (to checm if it is successful)
-const db = mongoose.connection;
+// // acuire the connection (to checm if it is successful)
+// const db = mongoose.connection;
 
-// error
+// // error
 
-db.on("error", console.error.bind(console, "error connection to db"));
+// db.on("error", console.error.bind(console, "error connection to db"));
 
-// up and running then print the message
-db.once("open", function () {
-  console.log("Successfully connected to the database");
-});
+// // up and running then print the message
+// db.once("open", function () {
+//   console.log("Successfully connected to the database");
+// });

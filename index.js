@@ -10,6 +10,7 @@ const port = 8000;
 //  ------------------------------- Start App -------------------------------
 const app = express();
 
+
 // ---------------------- Cors -------------------------- 
 
 const cors=require("cors");
@@ -24,7 +25,9 @@ app.use(cors(corsOptions))
 // -------------To tell that we will get json ----------------
 app.use(express.json()) 
 //  ------------------------------- Setting DB -------------------------------
-const db = require("./config/mongoose.js");
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb+srv://devchawla2608:RamRam2608@cluster0.4kwqbop.mongodb.net/?retryWrites=true&w=majority")
 
 //  ------------------------------- Parser Middleware (set data in req.body) -------------------------------
 app.use(express.urlencoded({ extended: true }));
