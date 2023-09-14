@@ -70,6 +70,43 @@ module.exports.createSession = async function (req, res) {
     }
 };
 
+// name
+// Test
+
+// String
+// email
+// testuser@gmail.com
+
+// String
+// password
+// 1
+
+
+module.exports.createSessionTestUser = async function (req, res) {
+  try{
+        const token = jwt.sign ({
+            name: "Test",
+            email: "testuser@gmail.com",
+        },
+          'secret',
+          { expiresIn: '1h' }
+          );
+          return res.send({
+              status: 200,
+              message: "Sign in Successfully",
+              data: token
+          })
+  }
+  catch(err){
+      console.log("Error", err);
+      return res.send({
+          status: 500,
+          message: "Internal Server Error",
+          data:false
+        })
+  }
+};
+
 module.exports.logout = function (req, res) {
     // Token in header
     const token = req.headers['x-access-token'];
